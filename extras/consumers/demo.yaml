@@ -1,0 +1,20 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongConsumer
+metadata:
+  name: consumer-demo
+  annotations:
+    kubernetes.io/ingress.class: kong
+username: demo
+credentials:
+- user-demo
+
+---
+apiVersion: v1
+data:
+  kongCredType: YmFzaWMtYXV0aA==
+  password: a29uZw==
+  username: ZGVtbw==
+kind: Secret
+metadata:
+  name: user-demo
+type: Opaque

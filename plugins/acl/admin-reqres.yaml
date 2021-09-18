@@ -1,0 +1,19 @@
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: acl-admin
+config: 
+  allow:
+  - admin
+  hide_groups_header: true
+plugin: acl
+
+---
+apiVersion: v1
+data:
+  group: YWRtaW4=
+  kongCredType: YWNs
+kind: Secret
+metadata:
+  name: acl-admin
+type: Opaque

@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  annotations:
+    konghq.com/protocol: https
+    konghq.com/path: "/api"
+  name: proxy-to-dogapi
+spec:
+  ports:
+  - protocol: TCP
+    port: 443
+    name: https
+  type: ExternalName
+  externalName: dog.ceo

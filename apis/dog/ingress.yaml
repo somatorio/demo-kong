@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: dogapi
+  annotations:
+    konghq.com/strip-path: "true"
+    kubernetes.io/ingress.class: kong
+    konghq.com/preserve-host: "false"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /dog
+        backend:
+          serviceName: proxy-to-dogapi
+          servicePort: 443

@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: reqres
+  annotations:
+    konghq.com/strip-path: "true"
+    kubernetes.io/ingress.class: kong
+    konghq.com/preserve-host: "false"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /reqres
+        backend:
+          serviceName: proxy-to-reqres
+          servicePort: 443
