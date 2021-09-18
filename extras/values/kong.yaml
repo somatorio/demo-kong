@@ -1,0 +1,15 @@
+
+ingressController:
+  installCRDs: false
+admin:
+  enabled: true
+  http:
+    enabled: true
+serviceMonitor:
+  enabled: true
+  namespace: monitoring
+  labels: 
+    release: "prometheus-grafana"
+podAnnotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "8444"
